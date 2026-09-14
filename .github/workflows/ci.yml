@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & verify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: bunx prisma generate
+
+      - name: Create SQLite database
+        run: bun run db:push
+        env:
+          DATABASE_URL: "file:../db/custom.db"
+          ADMIN_PASSWORD: ci-dummy-password
+          ADMIN_SESSION_SECRET: ci-dummy-secret-not-used-at-runtime
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build (standalone)
+        run: bun run build
+        env:
+          DATABASE_URL: "file:../db/custom.db"
+          ADMIN_PASSWORD: ci-dummy-password
+          ADMIN_SESSION_SECRET: ci-dummy-secret-not-used-at-runtime
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Verify standalone output
+        run: test -f .next/standalone/server.js && echo "standalone server OK"

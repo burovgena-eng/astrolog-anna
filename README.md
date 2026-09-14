@@ -2,6 +2,13 @@
 
 Люксовый одностраничный сайт для практикующего астролога и таролога: онлайн-запись на консультацию с реальными слотами, админ-CRM заявок, интерактивная «Карта дня», лунный календарь, персональный гороскоп и блог со статьями, сгенерированными AI.
 
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss)
+![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?logo=framer)
+![License](https://img.shields.io/badge/license-all_rights_reserved-red)
+
 <p align="center">
   <img src="docs/screenshots/hero.png" width="880" alt="Главный экран сайта" />
 </p>
@@ -95,9 +102,15 @@ db/                     # SQLite-файл (создаётся db:push, в git н
 
 ---
 
+## 👤 Автор
+
+**[burovgena-eng](https://github.com/burovgena-eng)**
+
+Проект разработан как демонстрация навыков fullstack-разработки: от проектирования схемы БД и REST API до UI, авторизации и дизайна-системы.
+
 ## Авторские права
 
-**© 2026 `Буров Геннадий Владиславович`. Все права защищены** (All rights reserved).
+**© 2026 Буров Геннадий Владиславович. Все права защищены** (All rights reserved).
 
 Репозиторий опубликован исключительно в качестве портфолио — для изучения кода и демонстрации навыков. Копирование, переиспользование, распространение и создание производных работ (код, дизайн, тексты, изображения) без письменного разрешения автора запрещены.
 
