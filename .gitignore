@@ -1,0 +1,39 @@
+# dependencies
+node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# environment (секреты не публикуются — см. .env.example)
+.env
+.env.*
+!.env.example
+
+# database (SQLite создаётся локально командой db:push)
+/db/*.db
+/db/*.db-journal
+
+# logs
+*.log
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# editor / OS
+.idea/
+.vscode/
+.claude/
+
+# service artifacts
+/worklog.md
+/tool-results/
+/agent-ctx/
