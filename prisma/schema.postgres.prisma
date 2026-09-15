@@ -1,0 +1,65 @@
+// Версия для PostgreSQL (продакшен, Vercel + Neon)
+// Заменяет собой schema.prisma при деплое в облако:
+// prisma generate --schema prisma/schema.postgres.prisma
+// Локальная разработка по-прежнему использует SQLite (prisma/schema.prisma).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Booking {
+  id        String    @id @default(cuid())
+  name      String
+  contact   String
+  service   String
+  datetime  String
+  comment   String?
+  status    String    @default("new")
+  notes     String?
+  // Task 27: точный слот записи (UTC). null = старая заявка «по договорённости»
+  slotAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Task 24: AI-статьи блога
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  excerpt     String
+  content     String
+  category    String
+  cover       String?
+  coverMime   String?
+  readMinutes Int      @default(5)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Task 25: кэш персональных гороскопов (ключ — хэш входных параметров + дата)
+model HoroscopeCache {
+  id        String   @id @default(cuid())
+  hash      String   @unique
+  name      String?
+  birthDate String
+  focus     String
+  dateKey   String
+  sunSign   String
+  text      String
+  createdAt DateTime @default(now())
+}
