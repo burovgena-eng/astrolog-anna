@@ -9,6 +9,12 @@
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?logo=framer)
 ![License](https://img.shields.io/badge/license-all_rights_reserved-red)
 
+## 🚀 Live demo
+
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-astrolog--anna--chi.vercel.app-00C853?style=for-the-badge&logo=vercel&logoColor=white)](https://astrolog-anna-chi.vercel.app)
+
+Демо развёрнуто на Vercel (Next.js 16 + Neon Postgres). Админ-панель доступна по адресу `/admin`, пароль: `admin123`. База наполнена вымышленными заявками.
+
 <p align="center">
   <img src="docs/screenshots/hero.png" width="880" alt="Главный экран сайта" />
 </p>
